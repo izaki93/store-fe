@@ -1,0 +1,43 @@
+<h3>Create Product</h3>
+<div style="width: 400px; text-align: left">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input type="text" class="form-control" id="productName" required [(ngModel)]="product.title" name="productName">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Product Price</label>
+      <input type="text" class="form-control" id="price" required [(ngModel)]="product.price" name="price">
+    </div>
+
+    <div class="form-group">
+      <label for="productDesc">Product Description</label>
+      <input type="text" class="form-control" id="productDesc" required [(ngModel)]="product.description"
+             name="productDesc">
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Image Url</label>
+      <input type="text" class="form-control" id="imageUrl" required bindon-ngModel="product.image"
+             name="imageUrl">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select [(ngModel)]="product.category" name="category" class="form-select" aria-label="Default select example" id="category">
+        <!-- String Interpolation ==> {{data}} (ts-> to view) -->
+        <!-- Property Binding ==> [data] = "date" Or bind-data  (ts-> to view)-->
+        <!-- Event Binding ==> (click) = "expression" or on-Click  (view-> to ts)-->
+        <!-- Two Way Data Binding ==> [(ngModel)] = "data" or bindon-ngModel -->
+        <option *ngFor="let categoryName of categories" bind-value="categoryName">
+          {{categoryName}}
+        </option>
+      </select>
+    </div>
+    <br/>
+    <diV>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </diV>
+  </form>
+</div>
